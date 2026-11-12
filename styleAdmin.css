@@ -288,3 +288,25 @@ header a.back-link:hover {
     .admin-workspace-box { display: block; }
     .dashboard-box { grid-template-columns: 1fr; }
 }
+
+footer {
+    background-color: #0e0624;
+    color: white;
+    padding: 1.5rem 24px 1rem;
+}
+
+.footer-brand h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid gray;
+    font-size: 14px;
+}
