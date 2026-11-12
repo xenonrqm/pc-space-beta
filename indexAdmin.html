@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PC-SPACE Admin</title>
+        <link rel="icon" type="image/png" href="images/bdo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styleAdmin.css">
+        <script src="https://kit.fontawesome.com/83badc134c.js" crossorigin="anonymous"></script>
+        <script src="scriptAdmin.js" defer></script>
+    </head>
+
+    <body>
+        <!-- HEADER BOX - logo and admin toggle -->
+        <header>
+            <h2>PC-SPACE <span>Admin</span></h2>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-store"></i> Back to Shop</a>
+        </header>
+
+        <!-- NAV BOX - navigation buttons -->
+        <nav>
+            <button><i class="fa-solid fa-circle-info"></i> About</button>
+            <button><i class="fa-solid fa-computer"></i> PC Builder</button>
+            <button><i class="fa-solid fa-bag-shopping"></i> Catalog</button>
+            <button><i class="fa-solid fa-bolt"></i> Flash Deals</button>
+            <button><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+            <button><i class="fa-solid fa-user"></i> Account</button>
+        </nav>
+
+        <main>
+            <!-- SIDEBAR - admin tools (data-tab = id of the panel it shows) -->
+            <div class="admin-tools-box">
+                <button class="active" data-tab="dashboard">Dashboard</button>
+                <button data-tab="journal">General Journal</button>
+                <button data-tab="trial">Trial Balance</button>
+                <button data-tab="income">Income Statement</button>
+                <button data-tab="balance">Balance Sheet</button>
+            </div>
+
+            <!-- WORKSPACE - one panel shows at a time -->
+            <div class="admin-workspace-box">
+
+                <!-- DASHBOARD -->
+                <section class="panel active" id="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="dashboard-box">
+                        <div class="cash">
+                            <h2><i class="fa-solid fa-wallet"></i> Cash</h2>
+                            <p class="stat-value" id="statCash">₱0.00</p>
+                        </div>
+                        <div class="total-sales">
+                            <h2><i class="fa-solid fa-chart-line"></i> Total Sales</h2>
+                            <p class="stat-value" id="statSales">₱0.00</p>
+                        </div>
+                        <div class="total-expenses">
+                            <h2><i class="fa-solid fa-receipt"></i> Total Expenses</h2>
+                            <p class="stat-value" id="statExpenses">₱0.00</p>
+                        </div>
+                        <div class="net-income">
+                            <h2><i class="fa-solid fa-scale-balanced"></i> Net Income</h2>
+                            <p class="stat-value" id="statNet">₱0.00</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button class="btn-yellow" id="sampleBtn">Load sample data</button>
+                        <button class="btn-black" id="clearBtn">Clear all data</button>
+                    </div>
+                    <p class="hint">Sample data adds 10 entries. Clear removes all entries.</p>
+                </section>
+
+                <!-- GENERAL JOURNAL -->
+                <section class="panel" id="journal">
+                    <h1>General Journal</h1>
+                    <form id="entryForm" class="form-box">
+                        <label>Date <input type="date" id="date" required></label>
+                        <label>Description <input type="text" id="desc" placeholder="Example: Paid rent" required></label>
+                        <label>Debit account <select id="debitAcc"></select></label>
+                        <label>Credit account <select id="creditAcc"></select></label>
+                        <label>Amount <input type="number" id="amount" min="0.01" step="0.01" placeholder="0.00" required></label>
+                        <button class="btn-yellow" type="submit">Add entry</button>
+                    </form>
+                    <p class="msg" id="formMsg"></p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Date</th><th>Description</th><th>Account</th><th class="num">Debit</th><th class="num">Credit</th><th></th></tr>
+                            </thead>
+                            <tbody id="journalBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- TRIAL BALANCE -->
+                <section class="panel" id="trial">
+                    <h1>Trial Balance</h1>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Account</th><th class="num">Debit</th><th class="num">Credit</th></tr></thead>
+                            <tbody id="trialBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="status" id="trialStatus"></p>
+                </section>
+
+                <!-- INCOME STATEMENT -->
+                <section class="panel" id="income">
+                    <h1>Income Statement</h1>
+                    <div class="table-wrap">
+                        <table><tbody id="incomeBody"></tbody></table>
+                    </div>
+                </section>
+
+                <!-- BALANCE SHEET -->
+                <section class="panel" id="balance">
+                    <h1>Balance Sheet</h1>
+                    <div class="table-wrap">
+                        <table><tbody id="balanceBody"></tbody></table>
+                    </div>
+                    <p class="status" id="balanceStatus"></p>
+                </section>
+
+            </div>
+        </main>
+    </body>
+</html>
